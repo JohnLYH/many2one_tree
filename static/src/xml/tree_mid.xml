@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="Many2OneTree">
+        <span class="oe_form_field oe_form_treefield" t-att-style="widget.node.attrs.style">
+            <t t-if="widget.get('effective_readonly')">
+                <a t-if="! widget.options.no_open" href="#" class="oe_form_uri"/>
+                <span t-if="widget.options.no_open" href="#" class="oe_form_uri"/>
+            </t>
+            <t t-if="!widget.get('effective_readonly')">
+                <div id="tree_link">
+                    <span id="span_content" class="oe_form_char_content"></span>
+                    <span id="tree_open_link" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <span id="tree_close_link" class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                </div>
+                <div id="tree" class="col-sm-3">
+                </div>
+            </t>
+        </span>
+    </t>
+
+</templates>
