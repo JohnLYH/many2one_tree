@@ -3,10 +3,10 @@
     <data>
         <template id="assets_backend" name="petstore_assets" inherit_id="web.assets_backend">
             <xpath expr="." position="inside">
-                <link rel="stylesheet" href="/tree_wid/static/src/css/default/style.css"/>
-                <link rel="stylesheet" href="/tree_wid/static/src/css/tree_wid.css"/>
-                <script type="text/javascript" src="/tree_wid/static/src/js/jstree.js"/>
-                <script type="text/javascript" src="/tree_wid/static/src/js/tree_wid.js"/>
+                <link rel="stylesheet" href="/many2one_tree/static/src/css/default/style.css"/>
+                <link rel="stylesheet" href="/many2one_tree/static/src/css/many2one_tree.css"/>
+                <script type="text/javascript" src="/many2one_tree/static/src/js/jstree.js"/>
+                <script type="text/javascript" src="/many2one_tree/static/src/js/many2one_tree.js"/>
             </xpath>
         </template>
     </data>

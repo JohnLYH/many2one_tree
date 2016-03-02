@@ -161,5 +161,5 @@ openerp.tree_wid = function(instance, local) {
         },
     });
 
-    instance.web.form.widgets.add('many2one_tree', 'instance.tree_wid.Many2OneTree');
+    instance.web.form.widgets.add('many2one_tree', 'instance.many2one_tree.Many2OneTree');
 };
