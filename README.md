@@ -7,6 +7,8 @@ odoo widget for many2one field, provide a tree to select value, like the followi
 
 ![tree](/tree.png)
 
+This is based on [jstree](https://www.jstree.com/), and include jstree in the source code for easy deploying.
+
 ## How to use 
 
 The related model must have parent_id and child_ids field.
