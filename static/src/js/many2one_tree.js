@@ -1,4 +1,4 @@
-openerp.tree_wid = function(instance, local) {
+openerp.many2one_tree = function(instance, local) {
     var _t = instance.web._t,
         _lt = instance.web._lt;
     var QWeb = instance.web.qweb;
@@ -18,6 +18,9 @@ openerp.tree_wid = function(instance, local) {
             } else {
                 this.middle_node_select = this.options.middle_node_select;
             }
+
+            this._parent_id = self.options.parent_id || 'parent_id';
+            this._child_ids = self.options.child_ids || 'child_ids';
         },
 
         close_tree: function(e) {
@@ -40,7 +43,7 @@ openerp.tree_wid = function(instance, local) {
                 record = data.instance.get_selected(true)[0];
                 if (record.data && record.data.has_children && !self.middle_node_select) {
                     self.$("#tree").jstree('toggle_node', record);
-                    event.stopPropagation('changed.jstree');
+                    e.stopPropagation('changed.jstree');
                 } else {
                     self.set_value([record.id, record.text]) ;
                     self.render_value();
@@ -54,22 +57,24 @@ openerp.tree_wid = function(instance, local) {
             var data;
 
             if (node.id === "#") {
-                domain = [['parent_id', '=', false]];
+                domain = [[self._parent_id, '=', false]];
                 self.fetch_node(domain, cb);
 
             } else {
-                domain = [['parent_id', '=', parseInt(node.id)]];
+                domain = [[self._parent_id, '=', parseInt(node.id)]];
                 self.fetch_node(domain, cb);
             }
         },
 
+
         fetch_node: function(domain, cb) {
+            var self = this;
             var model_obj = new instance.web.Model(this.field.relation);
-            return model_obj.query(['name', 'parent_id', 'child_ids']).filter(domain).all().then( function(records) {
+            return model_obj.query(['name', this._parent_id, this._child_ids]).filter(domain).all().then( function(records) {
                 var data = [];
                 _.each(records, function(record) {
                     var node = {'text': record.name, 'id': record.id};
-                    if (record.child_ids.length > 0) {
+                    if (record[self._child_ids].length > 0) {
                         node.children = true;
                         node.icon = 'glyphicon glyphicon-align-justify';
                         node.data = {'has_children': true};

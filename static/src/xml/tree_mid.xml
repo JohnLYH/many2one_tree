@@ -14,7 +14,7 @@
                     <span id="tree_open_link" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     <span id="tree_close_link" class="glyphicon glyphicon-minus" aria-hidden="true"></span>
                 </div>
-                <div id="tree" class="col-sm-3">
+                <div id="tree">
                 </div>
             </t>
         </span>

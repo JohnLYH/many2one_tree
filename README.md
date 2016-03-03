@@ -11,7 +11,7 @@ This is based on [jstree](https://www.jstree.com/), and include jstree in the so
 
 ## How to use 
 
-The related model must have parent_id and child_ids field.
+The related model must have parent_id and child_ids field, or you can use options to speficy corresponding field name.
 
 For example:
 
@@ -28,3 +28,7 @@ In some situlation, One may want middle node can't be selected, you can achieve 
 
         <field name="location_id" widget="many2one_tree" options="{'middle_node_select': False}"/> 
 
+There are other available options, only set them if you need;
+
+* `child_ids` - speficy similary field to child_ids.
+* `parent_id` - speficy similary field to parent_id.
